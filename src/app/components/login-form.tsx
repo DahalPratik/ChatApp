@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,33 +10,31 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from 'react';
-import api from '../../lib/axios';
-import { useRouter } from 'next/router';
-import { AxiosError } from 'axios';
+import { useState } from "react";
+import api from "../../lib/axios";
+import { useRouter } from "next/navigation";
+import { AxiosError } from "axios";
 
 export default function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
-
-
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await api.post('/login', { email, password });
+      const response = await api.post("/login", { email, password });
       const token = response.data.token;
-      localStorage.setItem('token', token);
-      alert('Login successful');
-      router.push('/dashboard');
+      localStorage.setItem("token", token);
+      alert("Login successful");
+      router.push("/dashboard");
     } catch (error) {
-    const err = error as AxiosError<{ message: string }>;
-    alert(err.response?.data?.message || err.message);
-  }
+      const err = error as AxiosError<{ message: string }>;
+      alert(err.response?.data?.message || err.message);
+    }
   };
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -81,7 +80,8 @@ export default function LoginForm({
               <Button type="submit" className="w-full">
                 Login
               </Button>
-    w          <Button variant="outline" className="w-full">
+              w{" "}
+              <Button variant="outline" className="w-full">
                 Login with Google
               </Button>
             </div>

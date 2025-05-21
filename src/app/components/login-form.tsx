@@ -14,7 +14,7 @@ import api from '../../lib/axios';
 import { useRouter } from 'next/router';
 import { AxiosError } from 'axios';
 
-export function LoginForm({
+export default function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {

@@ -9,13 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "axios": "^1.9.0",
-<<<<<<< HEAD
-=======
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
->>>>>>> f78eb29ec14d801be1d4427d498c2bf790371340
     "next": "15.3.2",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
